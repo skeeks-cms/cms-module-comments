@@ -12,11 +12,10 @@ use skeeks\cms\controllers\AdminCmsContentElementController;
 use skeeks\cms\modules\admin\actions\modelEditor\AdminOneModelFilesAction;
 use skeeks\cms\modules\admin\controllers\AdminController;
 use skeeks\cms\modules\admin\controllers\events\AdminInitEvent;
-use skeeks\cms\сomments2\actions\AdminOneModelMessagesAction;
+use skeeks\cms\comments2\actions\AdminOneModelMessagesAction;
 use yii\helpers\ArrayHelper;
 
 /**
- * @proprty array $ratings
  *
  * Class Comments2Component
  * @package skeeks\cms\comments2\components
@@ -24,11 +23,9 @@ use yii\helpers\ArrayHelper;
 class Comments2Component extends Component
 {
     public $enabledBeforeApproval                   = Cms::BOOL_Y;
-    public $maxValue                                = 5;
 
     public $maxCountMessagesForUser                 = 1;
 
-    public $elementPropertyRatingCode               = "comments2_rating";
     public $elementPropertyCountCode                = "comments2_count";
 
     public $notifyEmails                            = [];
@@ -41,8 +38,8 @@ class Comments2Component extends Component
     public $messageSuccessBeforeApproval            = "Комментарий успешно добавлен, и будет опубликован на сайте после проверки модератора.";
     public $messageSuccess                          = "Комментарий успешно добавлен, спасибо.";
 
-    public $enabledFieldsOnUser                     = ['comments', 'dignity', 'disadvantages'];
-    public $enabledFieldsOnGuest                    = ['comments', 'user_email', 'user_name', 'dignity', 'disadvantages', 'verifyCode'];
+    public $enabledFieldsOnUser                     = ['comments'];
+    public $enabledFieldsOnGuest                    = ['comments', 'user_email', 'user_name', 'verifyCode'];
 
     /**
      * Можно задать название и описание компонента
@@ -80,10 +77,8 @@ class Comments2Component extends Component
     {
         return ArrayHelper::merge(parent::rules(), [
             [['enabledBeforeApproval'], 'string'],
-            [['maxValue'], 'integer', 'min' => 5, 'max' => 1000],
             [['securityRateLimitRequests'], 'integer'],
             [['securityRateLimitTime'], 'integer'],
-            [['elementPropertyRatingCode'], 'string'],
             [['elementPropertyCountCode'], 'string'],
             [['messageSuccessBeforeApproval'], 'string'],
             [['messageSuccess'], 'string'],
@@ -101,9 +96,7 @@ class Comments2Component extends Component
     {
         return ArrayHelper::merge(parent::attributeLabels(), [
             'enabledBeforeApproval'                 => 'Использовать премодерацию комментариев',
-            'maxValue'                              => 'Максимальное значение рейтинга',
 
-            'elementPropertyRatingCode'             => 'Связь значения рейтинга со свойством элемента',
             'elementPropertyCountCode'              => 'Связь количества комментариев со свойством элемента',
 
             'notifyEmails'                          => 'Email адреса для уведомлений',
@@ -125,7 +118,7 @@ class Comments2Component extends Component
 
     /**
      * @return array
-     */
+
     public function getRatings()
     {
         for($i >= 1; $i <= $this->maxValue; $i ++)
@@ -142,5 +135,5 @@ class Comments2Component extends Component
         }
 
         return $result;
-    }
+    }*/
 }

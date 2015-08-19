@@ -15,6 +15,7 @@ use skeeks\cms\modules\admin\actions\modelEditor\ModelEditorGridAction;
 use skeeks\cms\modules\admin\controllers\AdminModelEditorController;
 use skeeks\cms\comments2\models\Comments2Message;
 use skeeks\modules\cms\form2\models\Form2Form;
+use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 
@@ -113,6 +114,8 @@ class BackendController extends Controller
 
                         //Отключена предмодерация, сразу публикуем
                         $model->status      = Comments2Message::STATUS_ALLOWED;
+                        $model->scenario    = ActiveRecord::SCENARIO_DEFAULT;
+
                         $model->save();
                     }
 

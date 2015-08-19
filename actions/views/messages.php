@@ -9,7 +9,7 @@
 /* @var $this yii\web\View */
 /* @var $model \skeeks\cms\models\CmsContentElement */
 
-$search = new \skeeks\cms\models\Search(\skeeks\cms\comments2\models\Сomments2Message::className());
+$search = new \skeeks\cms\models\Search(\skeeks\cms\comments2\models\Comments2Message::className());
 $dataProvider = $search->search(\Yii::$app->request->queryParams);
 
 $dataProvider->query->andWhere(['element_id' => $model->id]);

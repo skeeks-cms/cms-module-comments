@@ -15,8 +15,8 @@ $pjaxId = $widget->id . "-pjax";
 
 
 <? $form = \skeeks\cms\base\widgets\ActiveFormAjaxSubmit::begin([
-    'action'        => \skeeks\cms\helpers\UrlHelper::construct('/сomments2/backend/submit')->toString(),
-    'validationUrl' => \skeeks\cms\helpers\UrlHelper::construct('/сomments2/backend/submit')->enableAjaxValidateForm()->toString(),
+    'action'        => \skeeks\cms\helpers\UrlHelper::construct('/comments2/backend/submit')->toString(),
+    'validationUrl' => \skeeks\cms\helpers\UrlHelper::construct('/comments2/backend/submit')->enableAjaxValidateForm()->toString(),
     'afterValidateCallback' => new \yii\web\JsExpression(<<<JS
     function(jQueryForm, AjaxQuery)
     {
@@ -46,25 +46,6 @@ JS
         'value' => $widget->cmsContentElement->id
     ])->label(false); ?>
 
-
-    <?/*= $form->field($model, 'rating')->widget(\kartik\rating\StarRating::classname(), [
-        'pluginOptions' => [
-            'size' => 'lg',
-            'step' => 1,
-            'clearCaption' => 'Не выбрано',
-            'showClear' => false,
-            'starCaptions' =>
-            [
-                1 => 'Очень плохо',
-                2 => 'Плохо',
-                3 => 'Нормально',
-                4 => 'Хорошо',
-                5 => 'Отлично',
-            ]
-        ]
-    ]);*/?>
-    <?= $form->field($model, 'rating')->radioList(\Yii::$app->comments2->ratings); ?>
-
         <? if (\Yii::$app->user->isGuest) : ?>
 
             <? if (in_array('user_name', \Yii::$app->comments2->enabledFieldsOnGuest)): ?>
@@ -81,17 +62,6 @@ JS
                 ]); ?>
             <? endif; ?>
 
-            <? if (in_array('dignity', \Yii::$app->comments2->enabledFieldsOnGuest)): ?>
-                <?= $form->field($model, 'dignity')->textarea([
-                    'rows' => 5
-                ]); ?>
-            <? endif; ?>
-
-            <? if (in_array('disadvantages', \Yii::$app->comments2->enabledFieldsOnGuest)): ?>
-                <?= $form->field($model, 'disadvantages')->textarea([
-                    'rows' => 5
-                ]); ?>
-            <? endif; ?>
 
             <? if (in_array('verifyCode', \Yii::$app->comments2->enabledFieldsOnGuest)): ?>
                 <?= $form->field($model, 'verifyCode')->widget(\skeeks\cms\captcha\Captcha::className()) ?>
@@ -109,18 +79,6 @@ JS
 
             <? if (in_array('comments', \Yii::$app->comments2->enabledFieldsOnUser)): ?>
                 <?= $form->field($model, 'comments')->textarea([
-                    'rows' => 5
-                ]); ?>
-            <? endif; ?>
-
-            <? if (in_array('dignity', \Yii::$app->comments2->enabledFieldsOnUser)): ?>
-                <?= $form->field($model, 'dignity')->textarea([
-                    'rows' => 5
-                ]); ?>
-            <? endif; ?>
-
-            <? if (in_array('disadvantages', \Yii::$app->comments2->enabledFieldsOnUser)): ?>
-                <?= $form->field($model, 'disadvantages')->textarea([
                     'rows' => 5
                 ]); ?>
             <? endif; ?>
@@ -150,7 +108,7 @@ JS
 
     <? echo \yii\widgets\ListView::widget([
         'dataProvider'      => $widget->dataProvider,
-        'itemView'          => 'сomment-item',
+        'itemView'          => 'comment-item',
         'emptyText'          => '',
         'options'           =>
         [

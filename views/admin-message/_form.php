@@ -26,11 +26,7 @@ if ($model->isNewRecord !== null)
 
 <?= $form->fieldSet('Основная информация'); ?>
 
-
-    <?= $form->fieldSelect($model, 'rating', \Yii::$app->comments2->ratings); ?>
     <?= $form->field($model, 'comments')->textarea(['rows' => 5]); ?>
-    <?= $form->field($model, 'dignity')->textarea(['rows' => 5]); ?>
-    <?= $form->field($model, 'disadvantages')->textarea(['rows' => 5]); ?>
 
 <?= $form->fieldSetEnd(); ?>
 

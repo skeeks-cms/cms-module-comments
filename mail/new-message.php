@@ -32,10 +32,7 @@ use skeeks\cms\mail\helpers\Html;
         'attributes'    =>
         [
             'id',
-            'rating',
-            'comments',
-            'dignity',
-            'disadvantages',
+            'comments'
         ]
     ])?>
 
@@ -43,5 +40,5 @@ use skeeks\cms\mail\helpers\Html;
 
 
 <?= Html::beginTag('p'); ?>
-    Для управления комментариями используйте инструмент: <?= Html::a('тут', \skeeks\cms\helpers\UrlHelper::construct('сomments2/admin-message/update', ['pk' => $model->id])->enableAdmin()->enableAbsolute()->toString()); ?>.
+    Для управления комментариями используйте инструмент: <?= Html::a('тут', \skeeks\cms\helpers\UrlHelper::construct('comments2/admin-message/update', ['pk' => $model->id])->enableAdmin()->enableAbsolute()->toString()); ?>.
 <?= Html::endTag('p'); ?>

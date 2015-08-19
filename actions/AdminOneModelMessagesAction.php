@@ -9,8 +9,8 @@ namespace skeeks\cms\comments2\actions;
 use skeeks\cms\modules\admin\actions\modelEditor\AdminOneModelEditAction;
 
 /**
- * Class CommentsAsset
- * @package skeeks\cms\comments2\assets
+ * Class AdminOneModelMessagesAction
+ * @package skeeks\cms\comments2\actions
  */
 class AdminOneModelMessagesAction extends AdminOneModelEditAction
 {

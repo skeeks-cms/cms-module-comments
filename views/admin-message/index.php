@@ -100,12 +100,6 @@ if ($isOpenNewWindow)
             }
         ],
 
-        [
-            'filter' => \Yii::$app->comments2->ratings,
-            'attribute' => 'rating',
-            'class' => \yii\grid\DataColumn::className(),
-
-        ],
         /*'comments',*/
         /*'user_name',
         'user_email',
