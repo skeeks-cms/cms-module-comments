@@ -29,10 +29,7 @@ use yii\helpers\ArrayHelper;
  *
  * @property integer $element_id
  * @property integer $content_id
- * @property string $dignity
- * @property string $disadvantages
  * @property string $comments
- * @property integer $rating
  * @property integer $status
  * @property string $ip
  * @property string $page_url
@@ -54,7 +51,7 @@ use yii\helpers\ArrayHelper;
  * @property CmsSite $site
  * @property User $updatedBy
  */
-class Сomments2Message extends \skeeks\cms\models\Core
+class Comments2Message extends \skeeks\cms\models\Core
 {
     public $verifyCode;
 
@@ -117,7 +114,6 @@ class Сomments2Message extends \skeeks\cms\models\Core
         $messages   = static::find()->where(['element_id' => $this->element->id])->andWhere(['status' => static::STATUS_ALLOWED])->all();
 
         $count              = 0;
-        $ratingSumm         = 0;
 
         /**
          * @var self $message
@@ -125,15 +121,12 @@ class Сomments2Message extends \skeeks\cms\models\Core
         foreach ($messages as $message)
         {
             $count ++;
-            $ratingSumm = $ratingSumm + $message->rating;
         }
 
         if (!$count)
         {
             return ;
         }
-
-        $ratingAll = ($ratingSumm / $count);
 
         if (\Yii::$app->comments2->elementPropertyCountCode)
         {
@@ -143,13 +136,13 @@ class Сomments2Message extends \skeeks\cms\models\Core
             }
         }
 
-        if (\Yii::$app->comments2->elementPropertyRatingCode)
+        /*if (\Yii::$app->comments2->elementPropertyRatingCode)
         {
             if ($relatedPropertiesModel->hasAttribute(\Yii::$app->comments2->elementPropertyRatingCode))
             {
                 $relatedPropertiesModel->setAttribute(\Yii::$app->comments2->elementPropertyRatingCode, $ratingAll);
             }
-        }
+        }*/
 
         $relatedPropertiesModel->save();
     }
@@ -190,9 +183,8 @@ class Сomments2Message extends \skeeks\cms\models\Core
     {
         return [
             [['created_by', 'updated_by', 'created_at', 'updated_at', 'element_id', 'content_id', 'status'], 'integer'],
-            [['element_id', 'rating'], 'required'],
-            [['dignity', 'disadvantages', 'comments'], 'string'],
-            [['rating'], 'integer', 'min' => 1, 'max' => (int) \Yii::$app->comments2->maxValue],
+            [['element_id'], 'required'],
+            [['comments'], 'string'],
             [['ip'], 'string', 'max' => 32],
             [['page_url'], 'string'],
             [['site_code'], 'string', 'max' => 15],
@@ -261,10 +253,7 @@ class Сomments2Message extends \skeeks\cms\models\Core
             'published_at' => Yii::t('app', 'Время публикации'),
             'element_id' => Yii::t('app', 'Элемент'),
             'content_id' => Yii::t('app', 'Тип контента'),
-            'dignity' => Yii::t('app', 'Достоинства'),
-            'disadvantages' => Yii::t('app', 'Недостатки'),
             'comments' => Yii::t('app', 'Комментарий'),
-            'rating' => Yii::t('app', 'Rating'),
             'status' => Yii::t('app', 'Status'),
             'ip' => Yii::t('app', 'Ip'),
             'page_url' => Yii::t('app', 'Page Url'),

@@ -39,7 +39,7 @@ class Comments2Widget extends WidgetRenderable
     public $enabledPjaxPagination       = CMS::BOOL_Y;
 
     public $pageSize                    = 100;
-    public $pageParamName               = 'сomments2';
+    public $pageParamName               = 'comments2';
 
     //Сортировка
     public $orderBy                     = "published_at";

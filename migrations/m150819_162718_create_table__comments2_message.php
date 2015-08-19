@@ -8,7 +8,7 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m150703_162718_create_table__comments2_message extends Migration
+class m150819_162718_create_table__comments2_message extends Migration
 {
     public function up()
     {
@@ -39,11 +39,7 @@ class m150703_162718_create_table__comments2_message extends Migration
             'element_id'            => Schema::TYPE_INTEGER . ' NOT NULL',
             'content_id'            => Schema::TYPE_INTEGER . ' NULL',
 
-            'dignity'               => Schema::TYPE_TEXT . ' NULL',
-            'disadvantages'         => Schema::TYPE_TEXT . ' NULL',
             'comments'              => Schema::TYPE_TEXT . ' NULL',
-
-            'rating'                => Schema::TYPE_INTEGER . ' NOT NULL',
 
             'status'                => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 0', //статус, активна некативна, удалено
 
@@ -76,7 +72,6 @@ class m150703_162718_create_table__comments2_message extends Migration
         $this->execute("ALTER TABLE {{%comments2_message}} ADD INDEX(processed_by);");
 
         $this->execute("ALTER TABLE {{%comments2_message}} ADD INDEX(status);");
-        $this->execute("ALTER TABLE {{%comments2_message}} ADD INDEX(rating);");
 
         $this->execute("ALTER TABLE {{%comments2_message}} ADD INDEX(element_id);");
         $this->execute("ALTER TABLE {{%comments2_message}} ADD INDEX(content_id);");

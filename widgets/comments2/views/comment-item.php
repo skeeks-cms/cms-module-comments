@@ -22,9 +22,6 @@
         <? endif; ?>
     </div>
     <div class="col-lg-10">
-        <p>
-            Голос: <?= $model->rating; ?>
-        </p>
         <? if ($model->comments) : ?>
             <p>
             <b>Комментарий:</b><br />
@@ -32,19 +29,6 @@
             </p>
         <? endif; ?>
 
-        <? if ($model->dignity) : ?>
-            <p>
-            <b>Достоинства:</b><br />
-            <?= $model->dignity; ?>
-            </p>
-        <? endif; ?>
-
-        <? if ($model->disadvantages) : ?>
-            <p>
-            <b>Недостатки:</b><br />
-            <?= $model->disadvantages; ?>
-            </p>
-        <? endif; ?>
     </div>
     <div class="col-lg-12">
         <hr />

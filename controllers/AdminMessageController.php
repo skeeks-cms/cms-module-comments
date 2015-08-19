@@ -10,8 +10,8 @@ namespace skeeks\cms\comments2\controllers;
 use skeeks\cms\modules\admin\actions\modelEditor\AdminOneModelEditAction;
 use skeeks\cms\modules\admin\actions\modelEditor\ModelEditorGridAction;
 use skeeks\cms\modules\admin\controllers\AdminModelEditorController;
-use skeeks\cms\comments2\models\Comments2Message;
 use skeeks\modules\cms\form2\models\Form2Form;
+use skeeks\cms\comments2\models\Comments2Message;
 use yii\helpers\ArrayHelper;
 
 /**

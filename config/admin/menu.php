@@ -7,17 +7,17 @@
  */
 return [
 
-    'comments2' =>
+    'comments2sdf' =>
     [
-        'label'     => 'Клмментарии',
-        "img"       => ['\skeeks\cms\сomments2\assets\Comments2Asset', 'icons/сomments.jpg'],
+        'label'     => 'Комментарии',
+        "img"       => ['\skeeks\cms\comments2\assets\Comments2Asset', 'icons/comments.jpg'],
 
         'items' =>
         [
             [
                 "label" => "Комментарии",
-                "url"   => ["сomments2/admin-message"],
-                "img"       => ['\skeeks\cms\сomments2\assets\Comments2Asset', 'icons/сomments.jpg'],
+                "url"   => ["comments2/admin-message"],
+                "img"       => ['\skeeks\cms\comments2\assets\Comments2Asset', 'icons/comments.jpg'],
             ],
         ]
     ]
