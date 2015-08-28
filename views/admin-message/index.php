@@ -9,26 +9,14 @@
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 
-
-$controll = [
-    'class'         => \skeeks\cms\modules\admin\grid\ActionColumn::className(),
-    'controller'    => $controller
-];
-
-if ($isOpenNewWindow)
-{
-    $controll['isOpenNewWindow'] = true;
-}
 ?>
 
 <?= \skeeks\cms\modules\admin\widgets\GridViewHasSettings::widget([
     'dataProvider'  => $dataProvider,
     'filterModel'   => $searchModel,
+    'adminController'   => $controller,
+    'isOpenNewWindow'   => $isOpenNewWindow ? true : false,
     'columns' => [
-        ['class' => 'yii\grid\SerialColumn'],
-
-        $controll,
-
         [
             'attribute' => 'status',
             'class' => \yii\grid\DataColumn::className(),
@@ -78,13 +66,9 @@ if ($isOpenNewWindow)
         ],
 
         [
-            'filter' => false,
             'attribute' => 'element_id',
-            'class' => \yii\grid\DataColumn::className(),
-            'value' => function(\skeeks\cms\comments2\models\Comments2Message $model)
-            {
-                return $model->element->name;
-            }
+            'relation' => 'element',
+            'class' => \skeeks\cms\grid\CmsContentElementColumn::className(),
         ],
         [
             'filter' => \yii\helpers\ArrayHelper::map(

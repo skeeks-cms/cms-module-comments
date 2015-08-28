@@ -22,6 +22,8 @@ use yii\helpers\ArrayHelper;
  */
 class Comments2Component extends Component
 {
+    const PERMISSION_ADD_REVIEW                     = 'comments2.add.review';
+
     public $enabledBeforeApproval                   = Cms::BOOL_Y;
 
     public $maxCountMessagesForUser                 = 1;

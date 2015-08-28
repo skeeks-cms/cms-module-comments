@@ -6,19 +6,31 @@
  * @date 12.03.2015
  */
 return [
-
-    'comments2sdf' =>
+    'other' =>
     [
-        'label'     => 'Комментарии',
-        "img"       => ['\skeeks\cms\comments2\assets\Comments2Asset', 'icons/comments.jpg'],
-
         'items' =>
         [
             [
-                "label" => "Комментарии",
-                "url"   => ["comments2/admin-message"],
+                "label"     => "Комментарии",
                 "img"       => ['\skeeks\cms\comments2\assets\Comments2Asset', 'icons/comments.jpg'],
+
+                'items' =>
+                [
+                    [
+                        "label" => "Комментарии",
+                        "url"   => ["comments2/admin-message"],
+                        "img"       => ['\skeeks\cms\comments2\assets\Comments2Asset', 'icons/comments.jpg'],
+                    ],
+
+                    [
+                        "label" => "Настройки",
+                        "url"   => ["cms/admin-settings", "component" => 'skeeks\cms\comments2\components\Comments2Component'],
+                        "img"       => ['\skeeks\cms\modules\admin\assets\AdminAsset', 'images/icons/settings.png'],
+                    ],
+
+                ]
             ],
         ]
     ]
+
 ];
