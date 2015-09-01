@@ -7,14 +7,17 @@
  */
 namespace skeeks\cms\comments2\controllers;
 
+use skeeks\cms\comments2\components\Comments2Component;
 use skeeks\cms\components\Cms;
 use skeeks\cms\helpers\Request;
 use skeeks\cms\helpers\RequestResponse;
 use skeeks\cms\modules\admin\actions\modelEditor\AdminOneModelEditAction;
 use skeeks\cms\modules\admin\actions\modelEditor\ModelEditorGridAction;
 use skeeks\cms\modules\admin\controllers\AdminModelEditorController;
+use skeeks\cms\reviews2\components\Reviews2Component;
 use skeeks\cms\comments2\models\Comments2Message;
 use skeeks\modules\cms\form2\models\Form2Form;
+use yii\filters\AccessControl;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
@@ -25,6 +28,33 @@ use yii\web\Controller;
  */
 class BackendController extends Controller
 {
+
+    /**
+     * Проверка доступа к админке
+     * @return array
+     */
+    public function behaviors()
+    {
+        return
+        [
+            //Проверка доступа к админ панели
+            'access' =>
+            [
+                'class'         => AccessControl::className(),
+                'rules' =>
+                [
+                    [
+                        'allow'         => true,
+                        'roles'         =>
+                        [
+                            Comments2Component::PERMISSION_ADD_REVIEW
+                        ],
+                    ],
+                ]
+            ],
+        ];
+    }
+
     public function actionSubmit()
     {
         $rr = new RequestResponse();
