@@ -185,6 +185,7 @@ class Comments2Message extends \skeeks\cms\models\Core
             [['created_by', 'updated_by', 'created_at', 'updated_at', 'element_id', 'content_id', 'status'], 'integer'],
             [['element_id'], 'required'],
             [['comments'], 'string'],
+            [['comments'], 'required'],
             [['ip'], 'string', 'max' => 32],
             [['page_url'], 'string'],
             [['site_code'], 'string', 'max' => 15],

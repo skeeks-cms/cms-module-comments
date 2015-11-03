@@ -50,7 +50,7 @@ class Comments2Component extends Component
     static public function descriptorConfig()
     {
         return array_merge(parent::descriptorConfig(), [
-            'name'          => 'Комментарии',
+            'name'          => \skeeks\cms\comments2\Module::t('app', 'Comments'),
         ]);
     }
 
@@ -66,7 +66,7 @@ class Comments2Component extends Component
                     'comments2' =>
                         [
                             'class'         => AdminOneModelMessagesAction::className(),
-                            'name'          => 'Комментарии',
+                            'name'          => \skeeks\cms\comments2\Module::t('app', 'Comments'),
                             'priority'      => 1000,
                         ],
                 ]);
@@ -79,6 +79,7 @@ class Comments2Component extends Component
     {
         return ArrayHelper::merge(parent::rules(), [
             [['enabledBeforeApproval'], 'string'],
+            ['enabledBeforeApproval', 'default', 'value' => Cms::BOOL_Y],
             [['securityRateLimitRequests'], 'integer'],
             [['securityRateLimitTime'], 'integer'],
             [['elementPropertyCountCode'], 'string'],
@@ -97,24 +98,24 @@ class Comments2Component extends Component
     public function attributeLabels()
     {
         return ArrayHelper::merge(parent::attributeLabels(), [
-            'enabledBeforeApproval'                 => 'Использовать премодерацию комментариев',
+            'enabledBeforeApproval'                 => \skeeks\cms\comments2\Module::t('app', 'Use pre-moderation comments'),
 
-            'elementPropertyCountCode'              => 'Связь количества комментариев со свойством элемента',
+            'elementPropertyCountCode'              => \skeeks\cms\comments2\Module::t('app', 'Contact number of comments with the property element'),
 
-            'notifyEmails'                          => 'Email адреса для уведомлений',
-            'notifyPhones'                          => 'Телефонные номера для уведомлений',
+            'notifyEmails'                          => \skeeks\cms\comments2\Module::t('app', 'Email addresses for notifications'),
+            'notifyPhones'                          => \skeeks\cms\comments2\Module::t('app', 'Telephone numbers for notifications'),
 
-            'securityEnabledRateLimit'              => 'Включить защиту по IP',
-            'securityRateLimitRequests'             => 'Максимальное количество комментариев',
-            'securityRateLimitTime'                 => 'Время за которое будет размещено максимальное количество комментариев',
+            'securityEnabledRateLimit'              => \skeeks\cms\comments2\Module::t('app', 'Enable IP protection'),
+            'securityRateLimitRequests'             => \skeeks\cms\comments2\Module::t('app', 'Maximum number of comments for a specified time'),
+            'securityRateLimitTime'                 => \skeeks\cms\comments2\Module::t('app', 'The time for that will be taken by the maximum number of comments'),
 
-            'messageSuccessBeforeApproval'          => 'Сообщение об успешно добавленном комментарии (если включена предмодерация)',
-            'messageSuccess'                        => 'Сообщение об успешно добавленном комментарии (без предмодерации)',
+            'messageSuccessBeforeApproval'          => \skeeks\cms\comments2\Module::t('app', 'Reporting successfully added comments (if the pre-moderation on)'),
+            'messageSuccess'                        => \skeeks\cms\comments2\Module::t('app', 'Reporting successfully added comments (without pre-moderation)'),
 
-            'enabledFieldsOnGuest'                  => 'Поля в форме добавления комментария (пользователь неавторизован)',
-            'enabledFieldsOnUser'                   => 'Поля в форме добавления комментария (пользователь авторизован)',
+            'enabledFieldsOnGuest'                  => \skeeks\cms\comments2\Module::t('app', 'The fields in the form to add comments (not authorized)'),
+            'enabledFieldsOnUser'                   => \skeeks\cms\comments2\Module::t('app', 'The fields in the form to add comments (user is logged in)'),
 
-            'maxCountMessagesForUser'               => 'Максимальное количество комментариев к одному посту от одного польозвателя (0 - неограничено)',
+            'maxCountMessagesForUser'               => \skeeks\cms\comments2\Module::t('app', 'Maximum number of replies to the same post from one user (0 - unlimited)'),
         ]);
     }
 

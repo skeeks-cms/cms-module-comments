@@ -9,7 +9,7 @@ return [
     'permissions'   => [
         [
             'name' => \skeeks\cms\comments2\components\Comments2Component::PERMISSION_ADD_REVIEW,
-            'description'   => 'Добавление комментариев'
+            'description'   => \skeeks\cms\comments2\Module::t('app', 'Add comments')
         ],
     ]
 

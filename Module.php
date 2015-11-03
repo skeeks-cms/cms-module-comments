@@ -26,4 +26,10 @@ class Module extends \skeeks\cms\base\Module
         ]);
     }
 
+    public static function t($category, $message, $params = [], $language = null)
+    {
+        self::registerTranslations();
+        return \Yii::t('skeeks/comments2/' . $category, $message, $params, $language);
+    }
+
 }
