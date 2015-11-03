@@ -103,6 +103,7 @@ class Comments2Widget extends WidgetRenderable
             ['label', 'string'],
 
             ['limit', 'integer'],
+            ['limit', 'default', 'value' => 0],
             ['statuses', 'safe'],
             ['site_codes', 'safe'],
             ['createdBy', 'safe'],

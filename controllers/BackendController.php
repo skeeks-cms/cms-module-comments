@@ -95,7 +95,7 @@ class BackendController extends Controller
                         if ($messagesFind->count() >= \Yii::$app->comments2->maxCountMessagesForUser)
                         {
                             $rr->success = false;
-                            $rr->message = "Вы уже добавляли комментарий к этой записи ранее.";
+                            $rr->message = \skeeks\cms\comments2\Module::t('app', 'You have already added a comment on this post before.');
 
                             return $rr;
                         }
@@ -124,7 +124,7 @@ class BackendController extends Controller
                     if ($messagesFind2->count() >= \Yii::$app->comments2->securityRateLimitRequests)
                     {
                         $rr->success = false;
-                        $rr->message = "Вы слишком часто добавляете комментарии.";
+                        $rr->message = \skeeks\cms\comments2\Module::t('app', 'You too often add comments.');
 
                         return $rr;
                     }
@@ -154,13 +154,13 @@ class BackendController extends Controller
                 {
 
                     $rr->success = false;
-                    $rr->message = "Комментарий не добавлен: " . implode(",", $model->getFirstErrors());
+                    $rr->message = \skeeks\cms\comments2\Module::t('app', 'You comments not added').": " . implode(",", $model->getFirstErrors());
                 }
 
             } else
             {
                 $rr->success = false;
-                $rr->message = "Комментарий не добавлен: " . implode(",", $model->getFirstErrors());
+                $rr->message = \skeeks\cms\comments2\Module::t('app', 'You comments not added').": " . implode(",", $model->getFirstErrors());
             }
         }
 

@@ -8,29 +8,29 @@
  * @var \skeeks\cms\comments2\models\Comments2Message $model
  */
 /* @var $this yii\web\View */
-
 ?>
 
 <div class="row margin-bottom-20">
-    <div class="col-lg-2">
+    <div class="col-lg-2 col-md-2">
         <? if ($model->createdBy) : ?>
-            <img src="<?= $model->createdBy->getAvatarSrc(); ?>" style="float: left; padding-right: 10px;"/>
-            <?= $model->createdBy->displayName; ?>
+            <img src="<?= $model->createdBy->getAvatarSrc(); ?>" />
         <? else : ?>
             <img src="<?= \skeeks\cms\helpers\Image::getCapSrc(); ?>" />
-            Гость
         <? endif; ?>
     </div>
-    <div class="col-lg-10">
+    <div class="col-lg-10 col-md-10">
+        <? if ($model->createdBy) : ?>
+            <strong><?= $model->createdBy->displayName; ?></strong>
+            <small>(добавлен <?= Yii::$app->formatter->asDatetime($model->created_at); ?>):</small><br /><br>
+        <? else : ?>
+            Гость
+        <? endif; ?>
         <? if ($model->comments) : ?>
             <p>
-            <b>Комментарий:</b><br />
             <?= $model->comments; ?>
             </p>
         <? endif; ?>
 
     </div>
-    <div class="col-lg-12">
-        <hr />
-    </div>
 </div>
+    <hr />
