@@ -14,6 +14,7 @@ use skeeks\cms\modules\admin\controllers\AdminController;
 use skeeks\cms\modules\admin\controllers\events\AdminInitEvent;
 use skeeks\cms\comments2\actions\AdminOneModelMessagesAction;
 use yii\helpers\ArrayHelper;
+use yii\widgets\ActiveForm;
 
 /**
  *
@@ -118,6 +119,15 @@ class Comments2Component extends Component
             'maxCountMessagesForUser'               => \skeeks\cms\comments2\Module::t('app', 'Maximum number of replies to the same post from one user (0 - unlimited)'),
         ]);
     }
+
+    public function renderConfigForm(ActiveForm $form)
+    {
+        echo \Yii::$app->view->renderFile(__DIR__ . '/_form.php', [
+            'form'  => $form,
+            'model' => $this
+        ], $this);
+    }
+
 
     /**
      * @return array

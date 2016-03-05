@@ -6,15 +6,10 @@
  * @date 08.07.2015
  */
 use yii\helpers\Html;
-use skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab as ActiveForm;
-
 /* @var $this yii\web\View */
 /* @var $model \skeeks\cms\comments2\components\Comments2Component */
 
 ?>
-<?php $form = ActiveForm::begin(); ?>
-
-
 <?= $form->fieldSet('Основное'); ?>
     <?= $form->fieldRadioListBoolean($model, 'enabledBeforeApproval'); ?>
     <?= $form->fieldInputInt($model, 'maxCountMessagesForUser'); ?>
@@ -90,9 +85,5 @@ use skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab as ActiveForm;
     ]); ?>
 
 <?= $form->fieldSetEnd(); ?>
-
-
-<?= $form->buttonsCreateOrUpdate($model); ?>
-<?php ActiveForm::end(); ?>
 
 
