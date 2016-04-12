@@ -55,27 +55,6 @@ class Comments2Component extends Component
         ]);
     }
 
-    public function init()
-    {
-        parent::init();
-
-        \Yii::$app->on(AdminController::EVENT_INIT, function (AdminInitEvent $e) {
-
-            if ($e->controller instanceof AdminCmsContentElementController)
-            {
-                $e->controller->eventActions = ArrayHelper::merge($e->controller->eventActions, [
-                    'comments2' =>
-                        [
-                            'class'         => AdminOneModelMessagesAction::className(),
-                            'name'          => \skeeks\cms\comments2\Module::t('app', 'Comments'),
-                            'priority'      => 1000,
-                        ],
-                ]);
-            }
-        });
-    }
-
-
     public function rules()
     {
         return ArrayHelper::merge(parent::rules(), [
