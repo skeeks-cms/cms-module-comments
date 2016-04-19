@@ -10,21 +10,9 @@ namespace skeeks\cms\comments2;
  * Class Module
  * @package skeeks\cms\comments2
  */
-class Module extends \skeeks\cms\base\Module
+class Module extends \yii\web\Module
 {
     public $controllerNamespace = 'skeeks\cms\comments2\controllers';
-
-    /**
-     * @return array
-     */
-    static public function descriptorConfig()
-    {
-        return array_merge(parent::descriptorConfig(), [
-            "version"               => file_get_contents(__DIR__ . "/VERSION"),
-
-            "name"          => "Комментарии",
-        ]);
-    }
 
     public static function t($category, $message, $params = [], $language = null)
     {

@@ -3,6 +3,7 @@
 
 1.1.1
 -----------------
+  * Removed skeeks/cms/base/Module
   * Отключение события admin event init
 
 1.1.0
