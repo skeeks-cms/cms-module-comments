@@ -10,7 +10,7 @@ namespace skeeks\cms\comments2;
  * Class Module
  * @package skeeks\cms\comments2
  */
-class Module extends \yii\web\Module
+class Module extends \yii\base\Module
 {
     public $controllerNamespace = 'skeeks\cms\comments2\controllers';
 
