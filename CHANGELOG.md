@@ -1,6 +1,10 @@
 Процесс разработки модуля.
 ==============
 
+1.1.2.pre
+-----------------
+  * Removed \skeeks\cms\widgets\rbac\PermissionForRoles
+
 1.1.1
 -----------------
   * Removed skeeks/cms/base/Module
