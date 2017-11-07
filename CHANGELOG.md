@@ -1,6 +1,10 @@
 Процесс разработки модуля.
 ==============
 
+1.2.0
+-----------------
+ * Using composer-config-plugin
+ 
 1.1.2
 -----------------
   * Removed \skeeks\cms\widgets\rbac\PermissionForRoles
